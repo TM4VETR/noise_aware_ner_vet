@@ -197,3 +197,4 @@ cython_debug/
 
 models/
 logs/
+/data
