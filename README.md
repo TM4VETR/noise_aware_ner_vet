@@ -45,6 +45,7 @@ For example:
 
 ```env
 DATA_DIR_VET=path/to/data/vet
+MODELS_DIR=path/to/models
 ```
 
 ## Getting started
@@ -70,3 +71,28 @@ python run_training.py
 When running the above training scripts, the data will be split in a train, test, and validation set.  
 The best model of all epochs (based on the validation set) will be saved.  
 After training, the model will be evaluated on the test set.
+
+## OCR Error Analysis and Injection
+
+For injecting synthetic OCR errors, you can modify the file `nat/error_injector.py` to either
+1. inject random errors (insertion, substitution, deletion) or
+2. inject typical OCR errors, based on a previous empirical error analysis.
+
+### Empirical Error Analysis
+
+In case you want to inject typical OCR errors, a file `data/ocr_error_analysis.json` is required, which contains typical errors.
+
+You can run an empirical error analysis and create this file by running `error_analysis/ocr_errors.py`.  
+This will search for pairs of files named
+- `*_ocr.txt` (OCR results)
+- `*_ocr_corrected.txt` (ground truth)
+
+containing annotated OCR results (one word per line) and then create the corresponding `data/ocr_error_analysis.json` file.
+
+## Tests
+
+You can run the tests by:
+
+```bash
+pytest tests/
+```
