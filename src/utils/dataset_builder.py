@@ -9,9 +9,7 @@ from entities import LABEL_IDS
 from training.simplification import simplify
 from training.chunking import pack_by_token_budget
 from training.oversampling import oversample_positive_chunks
-from params import DO_STEMMING, MAX_LENGTH, OVERSAMPLING_FACTOR
-
-from src.params import DO_SIMPLIFY
+from params import DO_SIMPLIFY, DO_STEMMING, MAX_LENGTH, OVERSAMPLING_FACTOR
 
 
 def tokenize_and_align_labels_batch(
