@@ -1,0 +1,12 @@
+datasets==3.6.0
+dotenv==0.9.9
+matplotlib==3.10.6
+nltk==3.9.1
+numpy==2.3.1
+pylint==3.3.7
+pytest==8.4.1
+scikit-learn==1.7.0
+seqeval==1.2.2
+tensorboard==2.20.0
+torch
+transformers[torch]==4.53.1
