@@ -47,6 +47,7 @@ def train_model(model_name: str, train_set: List[Tuple[str, str, str]], val_set:
 
     # Pretrained model and tokenizer
     pretrained_model_dir = os.path.join(models_dir, "pretrained")
+    assert os.path.isdir(pretrained_model_dir), f"Pretrained model directory not found: {pretrained_model_dir}"
     tokenizer = AutoTokenizer.from_pretrained(pretrained_model_dir, use_fast=True)
     model = WeightedBertForTokenClassification.from_pretrained(
         pretrained_model_dir,
