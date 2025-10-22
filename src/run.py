@@ -7,7 +7,6 @@ import traceback
 from evaluate import evaluate_model
 from params import BATCH_SIZE
 from train import train_model
-from utils.cleaning_util import clean_model_directories
 from utils.data_handler import load_all_document_ids, split_train_test_validation
 from utils.data_handler import load_all_from_ids, correct_ocr_errors, inject_errors
 from utils.data_statistics import print_data_statistics

@@ -8,7 +8,6 @@ from transformers import AutoTokenizer
 from evaluate import evaluate_model
 from params import BATCH_SIZE_PT
 from pretrain import pretrain_model
-from utils.cleaning_util import clean_model_directories
 from utils.data_handler import load_all_document_ids_pretraining, split_train_test_validation
 from utils.data_handler import load_all_from_ids
 from utils.date_util import DATE_FORMAT
