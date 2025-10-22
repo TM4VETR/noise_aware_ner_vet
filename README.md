@@ -30,8 +30,8 @@ You can install the required packages using pip:
 pip install -r requirements.txt
 ```
 
-The `requirements.txt` file has been frozen, i.e., for each package the version used has been specified.  
 Only for `torch`, the version to be used heavily depends on the system (with/without CUDA, underlying Python and C++ version).
+The `requirements.txt` file has been frozen, i.e., each package version is fixed to ensure reproducibility.
 
 ### Required environment variables
 
@@ -48,11 +48,11 @@ DATA_DIR_VET=path/to/data/vet
 MODELS_DIR=path/to/models
 ```
 
-## Getting started
+## Getting Started
 
 After you have
 
-1. installed the required packages and  
+1. installed the required packages, and
 2. set the required environment variables,
 
 you can run the following commands to train and evaluate a model.
@@ -60,7 +60,7 @@ you can run the following commands to train and evaluate a model.
 **Run pre-training** (intermediate model):
 
 ```bash
-python run_pretraining.py 
+python run_pretraining.py
 ```
 
 **Run training** (final models: *noisy*, *clean*, *artificial*):
@@ -80,14 +80,22 @@ For injecting synthetic OCR errors, you can modify the file `nat/error_injector.
 
 ### Empirical Error Analysis
 
-In case you want to inject typical OCR errors, a file `data/ocr_error_analysis.json` is required, which contains typical errors.
+To inject realistic OCR errors, a file `data/ocr_error_analysis.json` is required.
+This file contains typical OCR mistakes observed in your dataset.
 
-You can run an empirical error analysis and create this file by running `error_analysis/ocr_errors.py`.  
-This will search for pairs of files named
-- `*_ocr.txt` (OCR results)
-- `*_ocr_corrected.txt` (ground truth)
+You can generate this file by running:
 
-containing annotated OCR results (one word per line) and then create the corresponding `data/ocr_error_analysis.json` file.
+```bash
+python error_analysis/ocr_errors.py
+```
+
+This script searches for matching file pairs:
+
+* `*_ocr.txt` — OCR results
+* `*_ocr_corrected.txt` — manually corrected ground truth
+
+Each pair must contain tokenized text (one word per line).
+The script will then create the corresponding `data/ocr_error_analysis.json` file.
 
 ## Tests
 
