@@ -93,9 +93,12 @@ def find_most_frequent_token(tokens: List[str], labels: List[str]) -> str:
         # Sort by frequency
         freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
 
-        key, value = next(iter(freq.items()))
-        logger.debug(f"Most frequent token for entity {entity}: '{key}' ({value} occurrences).")
-        #logger.debug(f"All tokens:\n {freq}")
+        if not freq or len(freq) == 0:
+            logger.warning(f"No tokens found for entity {entity}.")
+        else:
+            key, value = next(iter(freq.items()))
+            logger.debug(f"Most frequent token for entity {entity}: '{key}' ({value} occurrences).")
+            #logger.debug(f"All tokens:\n {freq}")
 
 
 def count_entities(entity: str, labels: List[str]) -> int:
