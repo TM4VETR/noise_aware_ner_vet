@@ -1,8 +1,6 @@
 # Noise-Aware Named Entity Recognition for Historical VET Documents
 
-*This repository will be made public.*
-
-This repository contains the code (for training and evaluation) for our paper "Noise-Aware Named Entity Recognition for Historical VET Documents".
+This repository contains the code (for training and evaluation) for our paper "Noise-Aware Named Entity Recognition for Historical VET Documents" at VISAPP 2026.
 
 ## Overview
 Historical Vocational Education and Training (VET) documents often suffer from OCR-induced noise, which makes downstream NLP tasks like Named Entity Recognition (NER) challenging.  
