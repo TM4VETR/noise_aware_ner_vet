@@ -102,3 +102,8 @@ You can run the tests by:
 ```bash
 pytest tests/
 ```
+
+
+## Contact
+
+For questions or collaboration, please contact [Alexander Esser](mailto:alexander.esser@bibb.de). 
